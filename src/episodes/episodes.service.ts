@@ -24,7 +24,10 @@ export class EpisodesService {
   }
 
   async findOne(id: number) {
-    return this.episodesRepository.findOneBy({id});
+    return this.episodesRepository.findOne({
+      where: {id},
+      relations: {description: true}
+    });
   }
 
   async update(id: number, updateEpisodeDto: UpdateEpisodeDto) {

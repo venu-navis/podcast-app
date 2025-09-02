@@ -22,7 +22,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             username: configService.get('DB_USERNAME'),
             database: configService.get('DB_DATABASE'),
             autoLoadEntities: true,
-            synchronize: configService.get<boolean>('SYNCHRONIZATION')
+            synchronize: configService.get<boolean>('SYNCHRONIZE')
           }
         )
     }),

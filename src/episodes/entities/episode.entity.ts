@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Description } from "./description.entity";
 
 @Entity()
 export class Episode {
@@ -20,6 +21,10 @@ export class Episode {
 
     @Column({default: false})
     watched: boolean;
+
+    @OneToOne(()=>Description, {cascade: true})
+    @JoinColumn()
+    description: Description;
 
     constructor( episode: Partial<Episode>)
     {
